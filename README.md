@@ -18,4 +18,4 @@ This project is a photo sharing platform that allows you to upload, store and sh
 
 This webpage is deployed to GitHub pages
 
-- Deployment Link:
+- Deployment Link: https://whittneywhitt.github.io/se_project_spots/
