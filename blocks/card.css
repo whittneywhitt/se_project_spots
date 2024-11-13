@@ -6,13 +6,18 @@
   border-radius: 8px;
 }
 
-card__title {
-  font-family: Poppins;
+.card__title {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   font-weight: normal;
   color: #212121;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .card__content {
