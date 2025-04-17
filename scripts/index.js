@@ -77,7 +77,7 @@ function handleEditFormSubmit(evt) {
 }
 
 profileEditButton.addEventListener("click", openModal);
-editModal.addEventListener("click", closeModal);
+editModalCloseBtn.addEventListener("click", closeModal);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 newPostButton.addEventListener("click", openModal);
