@@ -28,6 +28,7 @@
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  border-radius: 8px;
 }
 
 .modal__close-btn {
@@ -39,10 +40,6 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-.modal__close-btn:hover {
-  background-image: url(../images/close\ icon\ hover.svg);
 }
 
 .modal__title {
