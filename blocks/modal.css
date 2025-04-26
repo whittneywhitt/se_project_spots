@@ -48,6 +48,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 32px;
+  color: #212121;
 }
 
 .modal__label {
@@ -69,16 +70,15 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 20px;
-  color: #212121;
-  opacity: 40%;
+  color: #000000;
   border-radius: 8px;
   border: 1px solid #212121;
+  border-color: 0.4;
   cursor: pointer;
 }
 
 .modal__input:hover {
   border: 1px solid #212121;
-  opacity: 100%;
 }
 
 .modal__submit-btn {
@@ -88,11 +88,14 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
-  color: #212121;
   background-color: #212121;
   color: #fcf5e5;
   border-radius: 8px;
   border: none;
+}
+
+.modal__submit-btn:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
@@ -108,6 +111,11 @@
     font-size: 20px;
     line-height: 20px;
     margin: 10px 0 34px;
+  }
+
+  .modal__input {
+    font-size: 16px;
+    line-height: 100%;
   }
 
   .modal__close-btn {
