@@ -86,7 +86,7 @@ modalCloseBtn.addEventListener("click", closeModal);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 newPostButton.addEventListener("click", openNewPostModal);
-editFormElement.addEventListener("submit", handleEditFormSubmit);
+newModalPost.addEventListener("submit", handleEditFormSubmit);
 
 for (let i = 0; i < initialCards.length; i++) {
   const cardElement = getCardElement(initialCards[i]);
