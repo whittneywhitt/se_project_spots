@@ -31,12 +31,13 @@ const profileDescription = document.querySelector(".profile__description");
 
 const newPostButton = document.querySelector(".profile__add-btn");
 const newModalPost = document.querySelector("#new-post-modal");
-const newPostImageLinkInput = newModalPost.querySelector("#card-image-input");
-const newPostCaptionInput = newModalPost.querySelector("#card-caption-input");
+const linkInput = newModalPost.querySelector("#card-image-input");
+const nameInput = newModalPost.querySelector("#card-caption-input");
+const newPostCloseBtn = newModalPost.querySelector(".modal__close-btn");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
-const modalCloseBtn = editModal.querySelector(".modal__close-btn");
+const editCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editProfileDescriptionInput = editModal.querySelector(
   "#profile-description-input"
@@ -44,6 +45,8 @@ const editProfileDescriptionInput = editModal.querySelector(
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+const modalCloseBtns = document.querySelectorAll(".modal__close-btn");
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -71,7 +74,7 @@ function openNewPostModal() {
 
 function closeModal() {
   editModal.classList.remove("modal_opened");
-  newModalPost.remove("modal_opened");
+  newModalPost.classList.remove("modal_opened");
 }
 
 function handleEditFormSubmit(evt) {
@@ -81,12 +84,18 @@ function handleEditFormSubmit(evt) {
   closeModal();
 }
 
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  closeModal();
+}
+
 profileEditButton.addEventListener("click", openEditModal);
-modalCloseBtn.addEventListener("click", closeModal);
+editCloseBtn.addEventListener("click", closeModal);
+newPostCloseBtn.addEventListener("click", closeModal);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 newPostButton.addEventListener("click", openNewPostModal);
-newModalPost.addEventListener("submit", handleEditFormSubmit);
+newModalPost.addEventListener("submit", handleAddCardSubmit);
 
 for (let i = 0; i < initialCards.length; i++) {
   const cardElement = getCardElement(initialCards[i]);
