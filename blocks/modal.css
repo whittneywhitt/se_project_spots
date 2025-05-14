@@ -45,7 +45,6 @@
 }
 
 .modal__close-btn:hover {
-  background-image: url(../images/close\ icon\ hover.svg);
   opacity: 1;
 }
 

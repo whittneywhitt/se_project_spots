@@ -46,8 +46,6 @@ const editProfileDescriptionInput = editModal.querySelector(
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-const modalCloseBtns = document.querySelectorAll(".modal__close-btn");
-
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -86,6 +84,8 @@ function handleEditFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  console.log(linkInput.value);
+  console.log(nameInput.value);
   closeModal();
 }
 
