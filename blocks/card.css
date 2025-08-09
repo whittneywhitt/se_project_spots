@@ -8,6 +8,7 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .card__title {
@@ -18,9 +19,10 @@
   color: #212121;
   text-overflow: ellipsis;
   overflow: hidden;
-  text-wrap: nowrap;
   margin: 0;
   max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__content {
