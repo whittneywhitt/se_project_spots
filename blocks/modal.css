@@ -51,6 +51,7 @@
 .modal__close-btn_type_preview {
   top: 0;
   right: -52.5px;
+  background-image: url(../images/close-preview.svg);
 }
 
 .modal__close-btn:hover {

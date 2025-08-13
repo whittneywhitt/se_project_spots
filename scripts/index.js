@@ -101,22 +101,19 @@ function openNewPostModal() {
   openModal(newModalPost);
 }
 
-function closeModal() {
-  editModal.classList.remove("modal_opened");
-  newModalPost.classList.remove("modal_opened");
-  previewModal.classList.remove("modal_opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editProfileDescriptionInput.value;
-  closeModal();
+  closeModal(editModal);
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  evt.target.reset();
 
   const cardElement = getCardElement({
     name: nameInput.value,
@@ -124,12 +121,14 @@ function handleAddCardSubmit(evt) {
   });
   cardsList.prepend(cardElement);
 
-  closeModal();
+  evt.target.reset();
+
+  closeModal(newModalPost);
 }
 
 profileEditButton.addEventListener("click", openEditModal);
-editCloseBtn.addEventListener("click", closeModal);
-newPostCloseBtn.addEventListener("click", closeModal);
+editCloseBtn.addEventListener("click", () => closeModal(editModal));
+newPostCloseBtn.addEventListener("click", () => closeModal(newModalPost));
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 newPostButton.addEventListener("click", openNewPostModal);
