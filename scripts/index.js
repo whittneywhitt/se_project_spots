@@ -41,6 +41,7 @@ const newPostCloseBtn = newModalPost.querySelector(".modal__close-btn");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
+const cardSubmitBtn = editModal.querySelector(".modal__button");
 const editCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editProfileDescriptionInput = editModal.querySelector(
@@ -122,7 +123,7 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   evt.target.reset();
-
+  disableButton(cardSubmitBtn, settings);
   closeModal(newModalPost);
 }
 
