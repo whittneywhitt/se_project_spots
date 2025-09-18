@@ -37,11 +37,11 @@ const newPostButton = document.querySelector(".profile__add-btn");
 const newModalPost = document.querySelector("#new-post-modal");
 const linkInput = newModalPost.querySelector("#card-image-input");
 const nameInput = newModalPost.querySelector("#card-caption-input");
-const newPostCloseBtn = newModalPost.querySelector(".modal__close-btn");
+const newPostCloseBtn = newModalPost.querySelector(".modal__submit-btn");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
-const cardSubmitBtn = editModal.querySelector(".modal__button");
+const cardSubmitBtn = editModal.querySelector(".modal__submit-button");
 const editCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editProfileDescriptionInput = editModal.querySelector(
@@ -90,6 +90,8 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("click", handleOverlayClick);
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function openEditModal() {
@@ -104,6 +106,8 @@ function openNewPostModal() {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("click", handleOverlayClick);
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 function handleEditFormSubmit(evt) {
@@ -123,8 +127,24 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   evt.target.reset();
-  disableButton(cardSubmitBtn, settings);
+  const submitButton = evt.target.querySelector(".modal__submit-btn");
+  disableButton(submitButton, settings);
   closeModal(newModalPost);
+}
+
+function handleOverlayClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
+
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
 }
 
 profileEditButton.addEventListener("click", openEditModal);
