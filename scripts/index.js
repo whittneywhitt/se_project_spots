@@ -97,6 +97,8 @@ function openModal(modal) {
 function openEditModal() {
   editModalNameInput.value = profileName.textContent;
   editProfileDescriptionInput.value = profileDescription.textContent;
+
+  resetValidation(editFormElement, settings);
   openModal(editModal);
 }
 
